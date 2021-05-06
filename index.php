@@ -1,4 +1,4 @@
 <?php
 
-include_once "weather.html";
+include_once "wheater.html";
 ?>
