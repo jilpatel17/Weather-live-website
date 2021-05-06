@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live - Weather - Website</title>
+</head>
+<style>
+    body {
+        background-color: black;
+    }
+    .container{
+        background-color: aliceblue;
+        width: 50%;
+        height: 70vh;
+        margin-top: 20vh;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 10px;
+        box-shadow: 2px 1px 20px rgb(11, 193, 199);
+    }
+    .content{
+        
+        width: 50%;
+        position: relative;
+        padding: 15px;
+        top: 30px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+    button{
+        padding: 4px 7px;
+        background-color: rgb(219, 199, 16);
+        color: white;
+        outline: none;
+        border: none;
+        cursor: pointer;
+    }
+</style>
+<body>
+    
+    <div id="bg" class="container">
+            <div class="content">
+                <input type="text" id="get" placeholder="Serch City">
+                <button type="button" onclick="search()">Search</button>
+                <h1 id="city"></h1>
+                <img id="img" src="" alt="">
+                <h1 id="temp"></h1>
+                <h1 id="desc"></h1>
+            </div>
+            
+    </div>
+
+
+    <script>
+
+        if(navigator.geolocation)
+        {
+            // navigator.geoLocation.getCurrentPosition
+                function search(){
+                let city = document.getElementById("get").value;
+                let api = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=e039522849c25b2a74e43d361d121bdf`;
+                fetch(api).then((res)=>{ return res.json() }).then((data)=>{
+                    console.log(data);
+                    const {name} = data;
+                    const {feels_like} = data.main;
+                    const {id,description,icon} = data.weather[0];
+
+                    document.getElementById("city").textContent=name;
+                    document.getElementById("img").src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+                    document.getElementById("temp").textContent=Math.round(feels_like-273) + "° C";
+                    document.getElementById("desc").textContent=description;
+
+                    if(icon == "01n"){
+                        
+                        document.getElementById("bg").style.backgroundColor="black";
+                        document.getElementById("temp").style.color="skyblue";
+                        document.getElementById("city").style.color="skyblue";
+                        document.getElementById("desc").style.color="skyblue";
+                    }
+                    else if(icon == "01d"){
+                        
+                        document.getElementById("bg").style.backgroundColor="skyblue";
+                        document.getElementById("temp").style.color="orange";
+                        document.getElementById("city").style.color="orange";
+                        document.getElementById("desc").style.color="orange";
+                    }
+                    else if(icon == "02n"){
+                        
+                        document.getElementById("bg").style.backgroundColor="black";
+                        document.getElementById("temp").style.color="skyblue";
+                        document.getElementById("city").style.color="skyblue";
+                        document.getElementById("desc").style.color="skyblue";
+                    }
+                    else if(icon == "02d"){
+                        
+                        document.getElementById("bg").style.backgroundColor="skyblue";
+                        document.getElementById("temp").style.color="orange";
+                        document.getElementById("city").style.color="orange";
+                        document.getElementById("desc").style.color="orange";
+                    }
+                    else if(icon == "03n"){
+                        
+                        document.getElementById("bg").style.backgroundColor="black";
+                        document.getElementById("temp").style.color="skyblue";
+                        document.getElementById("city").style.color="skyblue";
+                        document.getElementById("desc").style.color="skyblue";
+                    }
+                    else if(icon == "03d"){
+                        
+                        document.getElementById("bg").style.backgroundColor="skyblue";
+                        document.getElementById("temp").style.color="orange";
+                        document.getElementById("city").style.color="orange";
+                        document.getElementById("desc").style.color="orange";
+                    }
+                    else if(icon == "04n"){
+                        
+                        document.getElementById("bg").style.backgroundColor="black";
+                        document.getElementById("temp").style.color="skyblue";
+                        document.getElementById("city").style.color="skyblue";
+                        document.getElementById("desc").style.color="skyblue";
+                    }
+                    else if(icon == "04d"){
+                        
+                        document.getElementById("bg").style.backgroundColor="skyblue";
+                        document.getElementById("temp").style.color="orange";
+                        document.getElementById("city").style.color="orange";
+                        document.getElementById("desc").style.color="orange";
+                    }
+                    else if(icon == "09n"){
+                        document.getElementById("bg").style.backgroundColor="black";
+                        document.getElementById("temp").style.color="skyblue";
+                        document.getElementById("city").style.color="skyblue";
+                        document.getElementById("desc").style.color="skyblue";
+                    }
+                    else if(icon == "09d"){
+                        
+                        document.getElementById("bg").style.backgroundColor="skyblue";
+                        document.getElementById("temp").style.color="orange";
+                        document.getElementById("city").style.color="orange";
+                        document.getElementById("desc").style.color="orange";
+                    }
+                    else if(icon == "10n"){
+                        
+                        document.getElementById("bg").style.backgroundColor="black";
+                        document.getElementById("temp").style.color="skyblue";
+                        document.getElementById("city").style.color="skyblue";
+                        document.getElementById("desc").style.color="skyblue";
+                    }
+                    else if(icon == "10d"){
+                        
+                        document.getElementById("bg").style.backgroundColor="skyblue";
+                        document.getElementById("temp").style.color="orange";
+                        document.getElementById("city").style.color="orange";
+                        document.getElementById("desc").style.color="orange";
+                    }
+                    else if(icon == "11n"){
+                        
+                        document.getElementById("bg").style.backgroundColor="black";
+                        document.getElementById("temp").style.color="skyblue";
+                        document.getElementById("city").style.color="skyblue";
+                        document.getElementById("desc").style.color="skyblue";
+                    }
+                    else if(icon == "11d"){
+                        
+                        document.getElementById("bg").style.backgroundColor="skyblue";
+                        document.getElementById("temp").style.color="orange";
+                        document.getElementById("city").style.color="orange";
+                        document.getElementById("desc").style.color="orange";
+                    }
+                    else if(icon == "13n"){
+                        
+                        document.getElementById("bg").style.backgroundColor="black";
+                        document.getElementById("temp").style.color="skyblue";
+                        document.getElementById("city").style.color="skyblue";
+                        document.getElementById("desc").style.color="skyblue";
+                    }
+                    else if(icon == "13d"){
+                        
+                        document.getElementById("bg").style.backgroundColor="skyblue";
+                        document.getElementById("temp").style.color="orange";
+                        document.getElementById("city").style.color="orange";
+                        document.getElementById("desc").style.color="orange";
+                    }
+                    else if(icon == "50n"){
+                        
+                        document.getElementById("bg").style.backgroundColor="black";
+                        document.getElementById("temp").style.color="skyblue";
+                        document.getElementById("city").style.color="skyblue";
+                        document.getElementById("desc").style.color="skyblue";
+                    }
+                    else if(icon == "50d"){
+                        
+                        document.getElementById("bg").style.backgroundColor="skyblue";
+                        document.getElementById("temp").style.color="orange";
+                        document.getElementById("city").style.color="orange";
+                        document.getElementById("desc").style.color="orange";
+                    }
+                    
+                })
+                
+            }
+           
+        }
+    </script>
+</body>
+</html>
