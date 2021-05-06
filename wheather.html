@@ -61,7 +61,7 @@
             // navigator.geoLocation.getCurrentPosition
                 function search(){
                 let city = document.getElementById("get").value;
-                let api = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=e039522849c25b2a74e43d361d121bdf`;
+                let api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=e039522849c25b2a74e43d361d121bdf`;
                 fetch(api).then((res)=>{ return res.json() }).then((data)=>{
                     console.log(data);
                     const {name} = data;
